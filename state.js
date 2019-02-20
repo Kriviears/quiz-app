@@ -7,7 +7,7 @@ let index = 0;
 
 
 const STATE = {
-  score: 155,
+  score: 0,
   message: [
     'Welcome to the Star trek quiz! Are you ready for some gatekeeping?',
     'Question 1: What do the native people of the planet orbited by the space station \'Deep Space 9\' refer to the captian of that space station as?',

@@ -4,6 +4,7 @@
 function correctAnswer(){
   //changes the state of the message to correct and flashes the ul background to green
   correct++;
+  console.log('Thats right!');
   //feedback class that floats set to visible for a bit
 }
 
@@ -36,9 +37,11 @@ function updateScore(input){
     incorrectAnswer();
   }
 
-  if(index === 1){
+  console.log(`${correct} correct answers out of ${index} questions`);
+
+  if(index === 0){
     STATE.score = 0;
-  }else STATE.score = (correct/(index-1))*100;
+  }else STATE.score = (correct/index)*100;
   index++;
 }
 
