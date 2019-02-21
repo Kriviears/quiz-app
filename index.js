@@ -41,7 +41,7 @@ function updateScore(input){
 
   if(index === 0){
     STATE.score = 0;
-  }else STATE.score = (correct/index)*100;
+  }else STATE.score = parseInt((correct/index)*100);
   index++;
 }
 
@@ -58,7 +58,9 @@ function handleAnswer(){
   });
 }
 
-
+function updateImage(image){
+  $('.js-current-image').attr(image);
+}
 
 function updateAnswers(index){
   console.log(`These are the answers for quetsion number ${index}`);
@@ -68,9 +70,19 @@ function updateAnswers(index){
   $('ul.js-answer-list .js-answer-D').html(STATE.answers[index][3].a);  
 }
 
+function updateMessage(index){
+  if(index <= 10){
+    $('.js-message').html(STATE.message[index]);
+  } else {
+    STATE.message[11]=`You scored a ${STATE.score} on the quiz. Restart?`;
+    $('.js-message').html(STATE.message[index]);
+  }
+}
+
 function renderState(){
   $('.js-score').html(STATE.score);
-  $('.js-message').html(STATE.message[index]);
+  updateImage(STATE.images[index]);
+  updateMessage(index);
   updateAnswers(index);
 }
 
