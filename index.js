@@ -65,7 +65,7 @@ function updateImage(image){
 function generateAnswersHTML(choices){
   let choiceButtons = '';
   for(let i=0; i<choices.length; i++){
-    choiceButtons = choiceButtons + `<li data-item-id="${i}"><button class="answer">${choices[i].a}</button></li>`;
+    choiceButtons = choiceButtons + `<li class="choice" data-item-id="${i}"><button class="answer">${choices[i].a}</button></li>`;
   }
   return choiceButtons;
 }
@@ -76,10 +76,10 @@ function updateAnswers(index){
   $('.js-answer-list').empty();
   $('.js-answer-list').append(newAnswers);
 
-  // $('ul.js-answer-list .js-answer-A').html(STATE.answers[index][0].a);
-  // $('ul.js-answer-list .js-answer-B').html(STATE.answers[index][1].a);
-  // $('ul.js-answer-list .js-answer-C').html(STATE.answers[index][2].a);
-  // $('ul.js-answer-list .js-answer-D').html(STATE.answers[index][3].a);  
+  // $('ul.js-answer-list').html(STATE.answers[index][0].a);
+  // $('ul.js-answer-list').html(STATE.answers[index][1].a);
+  // $('ul.js-answer-list').html(STATE.answers[index][2].a);
+  // $('ul.js-answer-list').html(STATE.answers[index][3].a);  
 }
 
 function updateMessage(index){
