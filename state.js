@@ -90,10 +90,7 @@ const STATE = {
       {a: 'Vorta', choice: false}
     ],
     [
-      {a: 'Restart quiz', choice: 'start'},
-      {a: 'Restart quiz', choice: 'start'},
-      {a: 'Restart quiz', choice: 'start'},
-      {a: 'Restart quiz', choice: 'start'},
+      {a: 'Restart quiz', choice: 'start'}
     ]
   ],
   images: [

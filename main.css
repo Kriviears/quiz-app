@@ -46,6 +46,7 @@
   .answer-list > li {
     display: inline-grid;
     width: 50%;
+    min-width: 300px;
     margin-bottom: 20px;
     border: 1px solid grey;
     padding: 5px;
