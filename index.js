@@ -46,7 +46,7 @@ function updateScore(input){
 }
 
 function handleAnswer(){
-  $('.js-answer-list').on('click', '.answer', function(event){
+  $('.question').on('submit', function(event){
     event.preventDefault();
     console.log('`HandleAnswer` ran');
     
