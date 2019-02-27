@@ -34,7 +34,9 @@
 
   .image-container{
       display: flex;
-      justify-content: space-around;
+      flex-direction: row;
+      justify-content: center;
+      margin: auto;
       height: 420px;
       width: 600px;
   }
@@ -44,7 +46,6 @@
       width: auto;
       max-width: 580px;
       max-height: 100%;
-      margin: 0 auto;
   }
 
   .current-image {
