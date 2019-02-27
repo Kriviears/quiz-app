@@ -20,6 +20,7 @@ function gradeAnswer(item){
     .data('item-id');
 
   answer = Number(answer);
+  console.log(answer);
 
   return STATE.answers[index][answer].choice;
 
@@ -46,7 +47,7 @@ function updateScore(input){
 }
 
 function handleAnswer(){
-  $('.question').on('submit', function(event){
+  $('.question').on('click', '.answer', function(event){
     event.preventDefault();
     console.log('`HandleAnswer` ran');
     
