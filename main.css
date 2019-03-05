@@ -23,7 +23,7 @@
   
   .container {
     margin-top: 25px;
-    /* max-width: 615px; */
+    max-width: 615px;
     height: -webkit-fill-available;
     margin: 0 auto;
     background-color: rgba(50, 115, 220, 0.3);
