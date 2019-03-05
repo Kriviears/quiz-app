@@ -18,18 +18,15 @@
     <h3 class="score"> Current Score: <span class="js-score">0</span>%</h3>
     <h1>Star Trek Quiz</h1>
     
-    <div class="image-container"><img class="current-image js-current-image" src="images/st-logo.jpg"><img></div>
-    <form class="question">
+    <div class="image-container"><img class="current-image js-current-image" src="images/st-logo.jpg"></img></div>
+    <form role="form" class="question">
       <label class="js-message">This is a question for the user to answer</label>
 
 
       <ul class="answer-list js-answer-list">
-          <li data-item-id="0"><button class="answer js-answer-A">Answer 1</button></li>
-          <li data-item-id="1"><button class="answer js-answer-B">Answer 2</button></li>
-          <li data-item-id="2"><button class="answer js-answer-C">Answer 3</button></li>
-          <li data-item-id="3"><button class="answer js-answer-D">Answer 4</button></li>
       </ul>
     </form>
+    <h3 class="js-feedback hidden failure"></h3>
 
   </div>
 </body>

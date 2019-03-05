@@ -6,11 +6,21 @@ function correctAnswer(){
   correct++;
   console.log('Thats right!');
   //feedback class that floats set to visible for a bit
+  $('.js-feedback').removeClass('success failure');
+  $('.question').hide(500);
+  $('.js-feedback').show().addClass('success').html('CORRECT').delay(500).hide(500);
+  $('.question').show(500);    
 }
 
 function incorrectAnswer(){
   //changes the state of the message to incorrect and flashes the ul background to Red
   //feedback class that floats set to visible for a bit
+  console.log('thats wrong');
+  $('.js-feedback').removeClass('success failure');
+  $('.question').hide(500);
+  $('.js-feedback').show().addClass('failure').html('INCORRECT').delay(500).hide(500);
+  $('.question').show(500);
+  //$('.js-feedback').removeClass('failure');
 }
 
 function gradeAnswer(item){
@@ -21,16 +31,19 @@ function gradeAnswer(item){
 
   answer = Number(answer);
   console.log(answer);
-
   return STATE.answers[index][answer].choice;
+}
 
+function restart(){
+  correct = 0;
+  index = 1;
+  STATE.score = 0;
+  $('.js-message').removeClass('failure success');
 }
 
 function updateScore(input){
   if(input==='start'){
-    correct = 0;
-    index = 1;
-    STATE.score = 0;
+    restart();
     return ;
   } else if(input === true){
     correctAnswer();
@@ -59,17 +72,32 @@ function handleAnswer(){
   });
 }
 
+function finalImage(){
+  if(STATE.score<70){
+    $('.js-current-image').attr(STATE.images[11]);
+  } else{
+    $('.js-current-image').attr(STATE.images[12]);
+  }
+}
+
 function updateImage(image){
-  $('.js-current-image').attr(image);
+  if(index <= 10){
+    $('.js-current-image').attr(image);
+  } else {
+    finalImage();
+  }
 }
 
 function generateAnswersHTML(choices){
   let choiceButtons = '';
   for(let i=0; i<choices.length; i++){
-    choiceButtons = choiceButtons + `<li class="choice" data-item-id="${i}"><button class="answer">${choices[i].a}</button></li>`;
+    choiceButtons = choiceButtons + `<li class="choice" data-item-id="${i}">
+    <button aria-labelledby="answer${i}" class="answer">${choices[i].a}</button></li>`;
   }
   return choiceButtons;
 }
+
+
 
 function updateAnswers(index){
   console.log(`These are the answers for quetsion number ${index}`);
@@ -83,12 +111,21 @@ function updateAnswers(index){
   // $('ul.js-answer-list').html(STATE.answers[index][3].a);  
 }
 
+function finalResults(){
+  STATE.message[11]=`You scored a ${STATE.score} on the quiz. Restart?`;
+  $('.js-message').html(STATE.message[index]);
+  if(STATE.score<70){
+    $('.js-message').addClass('failure');
+  } else{
+    $('.js-message').addClass('success');
+  }
+}
+
 function updateMessage(index){
   if(index <= 10){
     $('.js-message').html(STATE.message[index]);
   } else {
-    STATE.message[11]=`You scored a ${STATE.score} on the quiz. Restart?`;
-    $('.js-message').html(STATE.message[index]);
+    finalResults();
   }
 }
 

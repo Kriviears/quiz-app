@@ -24,10 +24,7 @@ const STATE = {
   ],
   answers: [
     [
-      {a: 'I\'m ready', choice: 'start'},
-      {a: 'Let\'s go', choice: 'start'},
-      {a: 'Fake nerd coming thru', choice: 'start'},
-      {a: 'What do I click?', choice: 'start'}
+      {a: 'I\'m ready', choice: 'start'}
     ],
     [
       {a: 'Overlord', choice: false},
@@ -94,17 +91,18 @@ const STATE = {
     ]
   ],
   images: [
-    {src: 'images/st-logo.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q1.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q2.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q3.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q4.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q5.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q6.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q7.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q8.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q9.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/q10.jpg', alt: 'Star Trek quiz start'},
-    {src: 'images/result.jpg', alt: 'Star Trek quiz start'},
+    {src: 'images/st-logo.jpg', alt: 'Star Trek logo'},
+    {src: 'images/q1.jpg', alt: 'Star Trek question 1'},
+    {src: 'images/q2.jpg', alt: 'Star Trek question 2'},
+    {src: 'images/q3.jpg', alt: 'Star Trek question 3'},
+    {src: 'images/q4.jpg', alt: 'Star Trek question 4'},
+    {src: 'images/q5.jpg', alt: 'Star Trek question 5'},
+    {src: 'images/q6.jpg', alt: 'Star Trek question 6'},
+    {src: 'images/q7.jpg', alt: 'Star Trek question 7'},
+    {src: 'images/q8.jpg', alt: 'Star Trek question 8'},
+    {src: 'images/q9.jpg', alt: 'Star Trek question 9'},
+    {src: 'images/q10.jpg', alt: 'Star Trek question 10'},
+    {src: 'images/failure.jpg', alt: 'Star Trek failure'},
+    {src: 'images/success.jpg', alt: 'Star Trek success'}
   ]
 };
