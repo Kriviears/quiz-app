@@ -3,7 +3,7 @@
 
 function correctAnswer(){
   //changes the state of the message to correct and flashes the ul background to green
-  correct++;
+  STATE.correct = STATE.correct+1;
   console.log('Thats right!');
   //feedback class that floats set to visible for a bit
   $('.js-feedback').removeClass('success failure');
@@ -31,12 +31,12 @@ function gradeAnswer(item){
 
   answer = Number(answer);
   console.log(answer);
-  return STATE.answers[index][answer].choice;
+  return STATE.answers[STATE.Qnum][answer].choice;
 }
 
 function restart(){
-  correct = 0;
-  index = 1;
+  STATE.correct = 0;
+  STATE.Qnum = 1;
   STATE.score = 0;
   $('.js-message').removeClass('failure success');
 }
@@ -51,12 +51,12 @@ function updateScore(input){
     incorrectAnswer();
   }
 
-  console.log(`${correct} correct answers out of ${index} questions`);
+  console.log(`${STATE.correct} correct answers out of ${index} questions`);
 
-  if(index === 0){
+  if(STATE.Qnum === 0){
     STATE.score = 0;
-  }else STATE.score = parseInt((correct/index)*100);
-  index++;
+  }else STATE.score = parseInt((STATE.correct/STATE.Qnum)*100);
+  STATE.Qnum = STATE.Qnum+1;
 }
 
 function handleAnswer(){
@@ -81,7 +81,7 @@ function finalImage(){
 }
 
 function updateImage(image){
-  if(index <= 10){
+  if(STATE.Qnum <= 10){
     $('.js-current-image').attr(image);
   } else {
     finalImage();
@@ -99,21 +99,16 @@ function generateAnswersHTML(choices){
 
 
 
-function updateAnswers(index){
-  console.log(`These are the answers for quetsion number ${index}`);
-  const newAnswers = generateAnswersHTML(STATE.answers[index]);
+function updateAnswers(Qnum){
+  console.log(`These are the answers for quetsion number ${Qnum}`);
+  const newAnswers = generateAnswersHTML(STATE.answers[Qnum]);
   $('.js-answer-list').empty();
-  $('.js-answer-list').append(newAnswers);
-
-  // $('ul.js-answer-list').html(STATE.answers[index][0].a);
-  // $('ul.js-answer-list').html(STATE.answers[index][1].a);
-  // $('ul.js-answer-list').html(STATE.answers[index][2].a);
-  // $('ul.js-answer-list').html(STATE.answers[index][3].a);  
+  $('.js-answer-list').append(newAnswers);  
 }
 
 function finalResults(){
   STATE.message[11]=`You scored a ${STATE.score} on the quiz. Restart?`;
-  $('.js-message').html(STATE.message[index]);
+  $('.js-message').html(STATE.message[STATE.Qnum]);
   if(STATE.score<70){
     $('.js-message').addClass('failure');
   } else{
@@ -121,9 +116,9 @@ function finalResults(){
   }
 }
 
-function updateMessage(index){
-  if(index <= 10){
-    $('.js-message').html(STATE.message[index]);
+function updateMessage(Qnum){
+  if(Qnum <= 10){
+    $('.js-message').html(STATE.message[Qnum]);
   } else {
     finalResults();
   }
@@ -131,9 +126,9 @@ function updateMessage(index){
 
 function renderState(){
   $('.js-score').html(STATE.score);
-  updateImage(STATE.images[index]);
-  updateMessage(index);
-  updateAnswers(index);
+  updateImage(STATE.images[STATE.Qnum]);
+  updateMessage(STATE.Qnum);
+  updateAnswers(STATE.Qnum);
 }
 
 $(function(){

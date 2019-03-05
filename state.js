@@ -1,12 +1,15 @@
 'use strict';
-let correct = 0;
 
+
+let correct = 0;
 let index = 0;
 
 
 
 
 const STATE = {
+  correct: 0,
+  Qnum: 0,
   score: 0,
   message: [
     'Welcome to the Star trek quiz! Are you ready for some gatekeeping?',
